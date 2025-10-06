@@ -7,5 +7,9 @@ pipeline {
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/theinterviewcompany/java-maven-war-app.git']])
             }
         }
+        stage('maven build') {
+            steps {
+                 sh 'mvn clean install'            }
+        }
     }
 }
